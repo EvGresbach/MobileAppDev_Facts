@@ -3,24 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:DogFactsSamples"
              mc:Ignorable="d" x:Class="DogFactsSamples.MainPage">
     <StackLayout>
-    <ListView ItemsSource="{x:Static local:MyFactData.All}"
-              RowHeight="70" ItemSelected="OnSelection" >
+    <ListView x:Name="listView" Margin="20">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <StackLayout Padding="5, 5, 0, 5"
-                                 Orientation="Horizontal"
-                                 Spacing="15">
-                            <Image Source ="{Binding TheImage}" />
-                            <Label Text="{Binding ShortFact}"
-                                   FontAttributes="Bold"
-                                   FontSize="Medium" />
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
+                    <TextCell Text="{Binding ShortFact}" Detail="{Binding TheFact}"/>
+                </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
     </StackLayout>
